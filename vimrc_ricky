@@ -351,7 +351,8 @@ inoremap <leader>zs <ESC>:call PhpDocSingle()<CR>i
 nnoremap <leader>zs :call PhpDocSingle()<CR> 
 vnoremap <leader>zs :call PhpDocRange()<CR> 
 " 用浅色高亮当前行（只在插入模式下显示，不在普通模式显示，在SecurCRT中是以横线显示）
-autocmd InsertLeave * se nocul
-autocmd InsertEnter * se cul
-autocmd InsertEnter * set cursorcolumn
-autocmd InsertLeave * set cursorcolumn
+"auocmd InsertEnter * se cul
+"autocmd InsertLeave * se nocul
+"autocmd InsertLeave * set cursorcolumn
+"autocmd InsertLeave * set cursorcolumn
+set cursorcolumn

@@ -71,6 +71,8 @@ Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Plugin 'vim-scripts/OmniCppComplete'
 "记录历史打开过的文件"
 Plugin 'yegappan/mru'
+"对齐
+Plugin 'vim-scripts/Align.git'
 "
 " non-GitHub repos (自己的git库插件)
 "Plugin 'git://git.wincent.com/command-t.git'

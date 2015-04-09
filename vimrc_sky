@@ -38,7 +38,12 @@ filetype plugin indent on " 开启插件
 syntax on " 自动语法高亮
 let mapleader = ","
 nnoremap \ ,
-colorscheme molokai "设定配色方案
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+" colorscheme molokai "设定配色方案
+" colorscheme molokai "设定配色方案
 "set cuc " 设置标尺来显示代码对齐
 "set list " 显示行尾换行符号
 "set cc=80
@@ -356,8 +361,11 @@ set completeopt=longest,menu
 inoremap <leader>doc <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <leader>doc :call PhpDocSingle()<CR> 
 vnoremap <leader>doc :call PhpDocRange()<CR> 
-" 用浅色高亮当前行（只在插入模式下显示，不在普通模式显示，在SecurCRT中是以横线显示）
-autocmd InsertLeave * se nocul
-autocmd InsertEnter * se cul
-autocmd InsertEnter * set cursorcolumn
-autocmd InsertLeave * set cursorcolumn
+" " 用浅色高亮当前行（只在插入模式下显示，不在普通模式显示，在SecurCRT中是以横线显示）
+set cursorcolumn
+" autocmd InsertLeave * se nocul
+" autocmd InsertEnter * se cul
+" autocmd InsertEnter * set cursorcolumn
+" autocmd InsertLeave * set cursorcolumn
+" TagbarToggle 显示函数列表插件
+nmap <Leader>tb :TagbarToggle<CR>

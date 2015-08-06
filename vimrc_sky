@@ -40,9 +40,8 @@ let mapleader = ","
 nnoremap \ ,
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 colorscheme solarized
-" colorscheme molokai "设定配色方案
 " colorscheme molokai "设定配色方案
 "set cuc " 设置标尺来显示代码对齐
 "set list " 显示行尾换行符号
@@ -369,3 +368,20 @@ set cursorcolumn
 " autocmd InsertLeave * set cursorcolumn
 " TagbarToggle 显示函数列表插件
 nmap <Leader>tb :TagbarToggle<CR>
+" PHPXdebug调试器
+let g:dbgPavimPort = 9009
+let g:dbgPavimBreakAtEntry = 0
+nmap <Leader>d :Bp<return>
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codesniffer_autorun = 0
+"----neocompl
+
+let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_enable_camel_case_completion = 1
+" let g:neocomplcache_enable_underbar_completion = 1
+" let g:neocomplcache_smart_case = 1
+" let g:neocomplcache_min_syntax_length = 3
+" let g:neocomplcache_manual_completion_start_length = 0
+" let g:neocomplcache_caching_percent_in_statusline = 1
+" let g:neocomplcache_enable_skip_completion = 1
+" let g:neocomplcache_skip_input_time = '0.5'

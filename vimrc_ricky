@@ -7,22 +7,19 @@ call vundle#rc()
 " let Vundle manage Vundle
 " " required! 
 " Bundle 'gmarik/vundle'
-"
-" " 可以通过以下四种方式指定插件的来源
-" " a)
+" 可以通过以下四种方式指定插件的来源
+" a)
 " 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
 " Bundle 'L9'
-"
-" “ b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定
+" b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
-"
-" " c) 指定非Github的Git仓库的插件，需要使用git地址
+" c) 指定非Github的Git仓库的插件，需要使用git地址
 " Bundle 'git://git.wincent.com/command-t.git'
 "
-" " d) 指定本地Git仓库中的插件
+" d) 指定本地Git仓库中的插件
 " Bundle 'file:///Users/gmarik/path/to/plugin'
 "
 " filetype plugin indent on     " required!
@@ -199,6 +196,19 @@ func EchoPrintR()
      normal o
      call setline('.', 'exit();')
      exe 'normal '.firstLn.'G'
+     exe 'normal 4V='
+     exe 'normal '.gotoLn.'G'
+     exe "normal /)\<CR>"
+     startinsert
+ endfunc
+"echo laravel dd debug
+noremap <leader>dd :call EchoDD()<return>
+"print_r function
+func EchoDD()
+     normal o
+     call setline('.', 'dd();')
+     let gotoLn = line('.')
+     normal o
      exe 'normal 4V='
      exe 'normal '.gotoLn.'G'
      exe "normal /)\<CR>"
@@ -398,7 +408,7 @@ endfunction
 " PHP 规范格式插件配置结束
 " PHP 语法检测设置
 let g:syntastic_php_checkers = ['php', 'phpmd']
-nmap <leader>ccs :SyntasticCheck phpcs<cr>
+nmap <leader>cs :SyntasticCheck phpcs<cr>
 " PHP 语法检测设置 over"
 let g:ackprg = 'ag --nogroup --nocolor --column'
 "同步窗口滚动"

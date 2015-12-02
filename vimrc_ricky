@@ -355,4 +355,55 @@ vnoremap <leader>zs :call PhpDocRange()<CR>
 "autocmd InsertLeave * se nocul
 "autocmd InsertLeave * set cursorcolumn
 "autocmd InsertLeave * set cursorcolumn
-set cursorcolumn
+""set cursorcolumn
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+" PHP 规范格式插件配置开始
+" If php-cs-fixer is in $PATH, you don't need to define line below
+" let g:php_cs_fixer_path = '~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
+let g:php_cs_fixer_level = "psr2"              " which level ?
+let g:php_cs_fixer_config = "default"             " configuration
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+" If you want to define specific fixers:
+" let g:php_cs_fixer_fixers_list = 'linefeed,short_tag,indentation'
+ let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+ let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+ let g:php_cs_fixer_verbose = 0                    " Return the output of
+" command if 1, else an"
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+nnoremap <silent><leader>pca :call MyPhpCsFixerFixFile()<CR>
+function! MyPhpCsFixerFixFile()
+    :call PhpCsFixerFixFile()
+    :%s/, $/,/ge
+    :%s/switch(/switch (/ge
+    :%s/while(/while (/ge
+    :%s/foreach(/foreach (/ge
+    :%s/for(/for (/ge
+    :%s/if(/if (/ge
+    :%s/){/) {/ge
+    :%s/else if/elseif/ge
+    :%s/}else/} else/ge
+    :%s/else{/else {/ge
+    :%s/=>\$/ => \$/ge
+    :%s/  =>\$/ => \$/ge
+    :%s/(\', \'/(\',\'/ge
+    :%s/(\", \"/(\",\"/ge
+    :w
+    :SyntasticCheck phpcs
+endfunction
+" PHP 规范格式插件配置结束
+" PHP 语法检测设置
+let g:syntastic_php_checkers = ['php', 'phpmd']
+nmap <leader>ccs :SyntasticCheck phpcs<cr>
+" PHP 语法检测设置 over"
+let g:ackprg = 'ag --nogroup --nocolor --column'
+"同步窗口滚动"
+nnoremap <silent><leader>sb :set scrollbind<CR>
+nnoremap <silent><leader>nsb :set noscrollbind<CR>
+set confirm
+"共享剪贴板    
+set clipboard+=unnamed

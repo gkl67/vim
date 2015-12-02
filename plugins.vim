@@ -60,7 +60,8 @@ Plugin 'vim-scripts/MatchTag'
 Plugin 'vim-scripts/grep.vim'
 
 Plugin 'vim-scripts/jsbeautify'
-Plugin 'vim-scripts/delimitMate.vim'
+""Plugin 'vim-scripts/delimitMate.vim' "括号匹配
+Plugin 'Raimondi/delimitMate' "括号匹配
 Plugin 'vim-scripts/surround.vim'
 Plugin 'vim-scripts/AutoClose.git'
 Plugin 'vim-scripts/HTML-AutoCloseTag.git'

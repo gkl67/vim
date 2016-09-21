@@ -79,8 +79,8 @@ let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id$"
 let g:pdv_cfg_Author = g:u_name
-let g:pdv_cfg_Copyright = "1997-2005 The PHP Group"
-let g:pdv_cfg_License = "PHP Version 3.0 ".g:u_email
+let g:pdv_cfg_Copyright = ""
+let g:pdv_cfg_License = "PHP ".g:u_email
 
 let g:pdv_cfg_ReturnVal = "void"
 

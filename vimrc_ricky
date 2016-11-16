@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" " required! 
+" " required!
 " Bundle 'gmarik/vundle'
 " 可以通过以下四种方式指定插件的来源
 " a
@@ -26,10 +26,10 @@ call vundle#rc()
 source ~/.vim/plugins.vim
 "=============用户自定义变量=====================
 let g:u_name = 'liuqi' "user name
-let g:u_email = 'liuqi@qufenqi.com' "email
+let g:u_email = 'liuqi@yongche.com' "email
 let u_path = '~/.tmp' "vim tmp 目录
 let u_swap_path=u_path.'/vim/swap' "vim swap 交换文件存放目录
-let g:u_undo_path=u_path.'/vim/undo' "vim undo (撤销操作 文件保存路径) 
+let g:u_undo_path=u_path.'/vim/undo' "vim undo (撤销操作 文件保存路径)
 "================用户自定义变量结束===================
 filetype plugin indent on " 开启插件
 syntax on " 自动语法高亮
@@ -135,7 +135,7 @@ let NERDCompactSexyComs=1 " 多行注释时样子更好看
 ",cA 在当前行尾添加注释符，并进入Insert模式
 ",cu 取消注释
 ",c$ 从光标开始到行尾注释
-",cc:光标以下count行添加注释(2,cc) 
+",cc:光标以下count行添加注释(2,cc)
 ",cu:光标以下count行取消注释(2,cu)
 ",cm:光标以下count行添加块注释(2,cm)
 "Normal模式下，几乎所有命令前面都可以指定行数
@@ -181,7 +181,7 @@ func EchoDD()
      startinsert
  endfunc
 "insert status echo print_r
-imap <C-T> <pre><CR>print_r()<C-O>mz;<CR></pre><C-O>`z 
+imap <C-T> <pre><CR>print_r()<C-O>mz;<CR></pre><C-O>`z
 "
 "CtrlP插件	查找并打开文件
 nnoremap <leader>tp :CtrlP<return> "文件搜索模式打开
@@ -209,13 +209,13 @@ nmap <leader>ss :SessionSave<CR>
 nmap <leader>sc :SessionClose<CR>
 "sessionman 配置结束
 "
-"indentline 缩进标识 配置开始 
+"indentline 缩进标识 配置开始
 let g:indentLine_enabled = 1
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#A4E57E'
 "let g:indentLine_char = '︙'
 nnoremap <leader>ig :IndentLinesToggle<CR>:set list! lcs=tab:\\|\<Space><CR>
-"indentline 缩进标识 配置结束 
+"indentline 缩进标识 配置结束
 "
 "vim-powerline 配置开始
 set t_Co=256
@@ -223,9 +223,9 @@ set t_Co=256
 "vim-powerline 配置结束
 "
 "添加注释信息插件 配置开始
-let g:vimrc_author= g:u_name 
-let g:vimrc_email= g:u_email 
-let g:vimrc_homepage='' 
+let g:vimrc_author= g:u_name
+let g:vimrc_email= g:u_email
+let g:vimrc_homepage=''
 nmap <leader>ai :AuthorInfoDetect<cr>
 "添加注释信息插件 配置结束
 "
@@ -250,6 +250,8 @@ nmap <leader>fd :set fdm=manual<return>
 
 "每次保存自动生成 tag
 "autocmd BufWritePost * call system("ctags -R")
+"每次保存自动删除行位空格"
+"autocmd BufWritePost * :%s/\s\+$//e
 
 function! GenerateCtags()
     exe "cd " . Find_project_root()
@@ -303,7 +305,7 @@ endfunction
 nnoremap <silent> <F3> :Grep<CR>
 nnoremap <silent> <F4> :Rgrep<CR>
 "let g:bufExplorerMaxHeight = 20
-"let g:miniBufExplForceSyntaxEnable = 1  
+"let g:miniBufExplForceSyntaxEnable = 1
 set laststatus=2 "show the status line
 set statusline=%-10.3n  "buffer number
 
@@ -314,18 +316,18 @@ map <silent> <leader>4 :diffget 4<CR> :diffupdate<CR>
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerMoreThanOne=0
 "MRU插件 设置开始
 let MRU_Max_Entries = 400
 map <leader>h :MRU<CR>
 "自动提示插件"
-filetype plugin indent on 
-set completeopt=longest,menu 
+filetype plugin indent on
+set completeopt=longest,menu
 "php注释插件配置"
-inoremap <leader>zs <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <leader>zs :call PhpDocSingle()<CR> 
-vnoremap <leader>zs :call PhpDocRange()<CR> 
+inoremap <leader>zs <ESC>:call PhpDocSingle()<CR>i
+nnoremap <leader>zs :call PhpDocSingle()<CR>
+vnoremap <leader>zs :call PhpDocRange()<CR>
 " 用浅色高亮当前行（只在插入模式下显示，不在普通模式显示，在SecurCRT中是以横线显示）
 "auocmd InsertEnter * se cul
 "autocmd InsertLeave * se nocul
@@ -381,5 +383,5 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <silent><leader>sb :set scrollbind<CR>
 nnoremap <silent><leader>nsb :set noscrollbind<CR>
 set confirm
-"共享剪贴板    
+"共享剪贴板
 ""set clipboard+=unnamed

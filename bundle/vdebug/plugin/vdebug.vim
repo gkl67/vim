@@ -37,7 +37,7 @@ else
   let $CUR_DIRECTORY=expand("<sfile>:p:h")
 
   if filereadable($CUR_DIRECTORY."/python/start_vdebug.py")
-    pyfile $CUR_DIRECTORY/python/start_vdebug.py
+    ""pyfile $CUR_DIRECTORY/python/start_vdebug.py
   else
     call confirm('vdebug.vim: Unable to find start_vdebug.py. Place it in either your home vim directory or in the Vim runtime directory.', 'OK')
   endif
@@ -108,7 +108,7 @@ if g:vdebug_force_ascii == 1
 endif
 
 " Create the top dog
-python debugger = DebuggerInterface()
+""python debugger = DebuggerInterface()
 
 " Commands
 command! -nargs=? -complete=customlist,s:BreakpointTypes Breakpoint python debugger.set_breakpoint(<q-args>)

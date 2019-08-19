@@ -7,6 +7,7 @@ call vundle#begin()
 "let Vundle manage Vundle
 "required! 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'posva/vim-vue'
 "My bundles here:
 "original repos on GitHub (来自 github  只要写 作者名/项目名)
 Plugin 'kien/ctrlp.vim'
